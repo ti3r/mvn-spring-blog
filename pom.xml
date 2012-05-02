@@ -1,0 +1,130 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.blanco.spring</groupId>
+  <artifactId>mvn-spring-blog</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>mvn-spring-blog Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  <!-- Properties are used to define values that will be latter replaced in the pom file
+  with the notation ${property.name} -->
+  <properties>
+        <org.springframework.version>3.1.1.RELEASE</org.springframework.version>
+  </properties>
+  
+  <!-- Adding the dependencies of the project -->
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-web</artifactId>
+		<version>${org.springframework.version}</version>
+	</dependency>
+        
+    <dependency>
+		<groupId>jstl</groupId>
+		<artifactId>jstl</artifactId>
+		<version>1.2</version>
+	</dependency>
+	            
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-webmvc</artifactId>
+		<version>${org.springframework.version}</version>
+	</dependency>
+    
+    <dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-core</artifactId>
+		<version>${org.springframework.version}</version>
+	</dependency>
+    <dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context</artifactId>
+		<version>${org.springframework.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-beans</artifactId>
+		<version>${org.springframework.version}</version>
+	</dependency>
+		
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-asm</artifactId>
+		<version>${org.springframework.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-aop</artifactId>
+		<version>${org.springframework.version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.apache.tomcat</groupId>
+		<artifactId>servlet-api</artifactId>
+		<version>6.0.35</version>
+	</dependency>
+	            
+
+	<dependency>
+		<groupId>aopalliance</groupId>
+		<artifactId>aopalliance</artifactId>
+		<version>1.0</version>
+	</dependency>
+	   
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>servlet-api</artifactId>
+		<version>2.5</version>
+	</dependency>
+            
+	   
+  </dependencies>
+  <!-- The build part specifies the way the application will be build 
+   the plugins must be defined here. At least compiler plugin must be
+   defined in order to compile classes :O-->
+  <build>
+    <finalName>mvn-spring-blog</finalName>
+    <defaultGoal>package</defaultGoal>
+    <sourceDirectory>src/main/resources</sourceDirectory>
+    
+    <plugins>
+	<!-- The compiler plugin used to specify the type of compilation -->
+	<plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.4</version>
+        <goals>
+        	<goal>compile</goal>
+        </goals>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+	<!-- The war plugin in order to specify that this app should be bundled
+	 in a war file and that it correspond to a web application-->
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.1-beta-1</version>
+        <goals>
+        	<goal>package</goal>
+        </goals>
+        <configuration>
+          <!-- http://maven.apache.org/plugins/maven-war-plugin/ -->
+          <warSourceDirectory>src/main/webapp</warSourceDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
